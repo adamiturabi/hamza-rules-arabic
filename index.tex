@@ -1,0 +1,336 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  english,
+  10pt,
+]{scrreprt}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[Numbers=OldStyle,BoldFont=``Charis SemiBold'']{Charis}
+  \setsansfont[Numbers=OldStyle,BoldFont=``Charis SemiBold'']{Charis}
+  \setmonofont[Scale=0.7]{DejaVu Sans Mono}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[Numbers=OldStyle,BoldFont=``Charis SemiBold'']{Charis}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={قواعد كتابة الهمزة},
+  pdflang={en},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\babelfont[arabic]{rm}[Language=Default]{Vazirmatn}
+\babelfont[arabic]{sf}[Language=Default]{Vazirmatn}
+\babelfont[arabic]{alt}[Language=Default]{Amiri}
+%\babelfont[arabic]{quran}[Language=Default]{Amiri Quran}
+%\babelfont[arabic]{quran}[Language=Default]{KFGQPC HAFS Uthmanic Script}
+\babelfont[arabic]{quran}[Language=Arabic, Renderer=HarfBuzz]{Kitab} % need to specify HarfBuzz to fix ligatures
+\babelfont[arabic]{areng}[Language=Arabic, Renderer=HarfBuzz]{Kitab} % need to specify HarfBuzz to fix ligatures
+
+%\extratitle{\textbf{\Huge Extra title here}}
+%\frontispiece{\vspace*{\fill}\par Copyright \textcopyright{} 2024 Me}% added (can also be used for other content like an image)
+
+%\title{In Love}
+%\author{Prince Ironheart}
+%\date{1412}
+
+%\uppertitleback{
+%\footnotesize
+%\parindent 0pt
+%\parskip \baselineskip
+%\textcopyright{} 2023 Author Names \\
+%All rights reserved.
+%
+%    This work may not be distributed or modified, without written permission from the copyright holder.
+%
+%%\begin{center}
+%%\begin{tabular}{ll}
+%%\texttt{\gitTag}
+%%\end{tabular}
+%%\end{center}
+%
+%This book is typeset with {\KOMAScript} and {Lua\LaTeX} (via Quarto and pandoc)
+%in the Charis, Vazirmatn, Kitab, and Amiri typefaces.
+%}
+%
+%\lowertitleback{
+%  https://adamiturabi.github.io/arabic-tutorial-book/
+%}
+
+%\dedication{Dedi-\\
+%cation.}
+
+\title{\foreignlanguage{arabic}{\altfamily قواعد كتابة الهمزة}}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\begin{otherlanguage}{arabic}
+
+\altfamily 
+
+بسم الله الرحمن الرحيم
+
+الواو مد وشبه
+\href{https://ar.wikipedia.org/wiki/\%D8\%B5\%D8\%A7\%D9\%85\%D8\%AA}{صامت}.
+فمن حقها صامتًا تحرك فنقول وَلد ووُسطى ووِلدان. ويسكن عليها فنقول مَوْلد. كذلك
+الياء مد وشبه صامت فمن حقها صامتًا تحرك فنقول يَفعل ويُفعل ويسيِّر. ويسكن
+عليها فنقول وَيْل. وكذلك الألف مد وصامت. وحين تكون صامتا تلفظ بصوت الهمزة.
+والهمزة تحرك ويسكن عليها كما يُفعل بسائر الصوامت. وحين تكون صامتًا كان
+حقها أن تُكتب بالألف فذهبنا نكتب:
+
+\begin{itemize}
+\tightlist
+\item
+  هـٰاُلااِ (هؤلاءِ)
+\item
+  تَوْاَم (تَوْءَم)
+\item
+  خَطِياَة (خَطِيءَة)
+\item
+  شَيْاَا (شَيْءَا)
+\item
+  سُاَال (سؤال)
+\item
+  رَاْس (رأس)
+\item
+  بِاْسَ (بئس)
+\item
+  سُاْل (سُؤْل)
+\end{itemize}
+
+ولكن بعض القبائل أشهرها قريشًا كانوا لا يلفظون الهمزة إلا إذا اضطروا.
+فيبدلونها مدًّا أو شدَّة. فنظنهم يقولونَ ويكتبون:
+
+\begin{itemize}
+\tightlist
+\item
+  هـٰوُلا (هؤلاء)
+\item
+  تَوَّم (تَوْءَم)
+\item
+  خَطِيَّة (خَطِيءَة)
+\item
+  شَيَّا (شَيْءَا)
+\item
+  سُوَال (سؤال)
+\item
+  رَاس (رأس)
+\item
+  بِيسَ (بئس)
+\item
+  سُول (سُؤْل)
+\end{itemize}
+
+فاتفق أن كتابة القريش غير الهامزة وتلفُّظ العرب الهامزة صارا معيارًا
+للعربية التي كانت يكتب بها في الكتب وينطق بها في الخُطَب. ومعيار لا حرج في
+اقتدائه لا سيما لصلتنا به تراثنا القيم.
+
+ولكن يشكل علينا تشكيل الهمزة أنجعل لها كرسيًّا فنكتبها على إحدى حواميها
+الألف والياء ولواو؟ أم نتركها قائمة فنكتبها على النبر؟
+
+فها أنا ذا أقدم لكم قواعد تبسط الإشكال إن شاء الله
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+احفظ هذه الأصول:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  الكسرة أقوى من الضمة والضمة أقوى من الفتحة والفتحة أقوى من السكون.
+\item
+  الحركة الممدودة أقوى من نفس الحركة غير الممدودة.
+\item
+  المدود (ـِي وـُو وـَا) وشبها المد (ـَوْ وـيْ) يفضلن الهمزة على النبر. وأما
+  الحركات غير الممدودة فتفضل الكسرة كتابة الهمزة على الياء، وتفضل الضمة
+  كتابة الهمزة على الواو، وتفضل الفتحة كتابة الهمزة على الألف.
+\end{enumerate}
+
+فمن هذه القواعد نبني جدولًا للصوائت أول صفوفه أقواها وآخر صفوفه أضعفها:
+
+وإما تستعلمن كتابة الهمزة في كلمة فاجعل الصائت الذي للهمزة والصائت الذي
+\textbf{قبل} الهمزة في الجدول المذكورة آنفا. فانظر أيهما أقوى. واكتب
+الهمزة كتابة الصائت الأقوى.
+
+واعلم أيضا:
+
+\begin{itemize}
+\tightlist
+\item
+  أن «ءَا» تكتب «آ» في غير رسم المصحف إن كانت الهمزة أصلية.
+\item
+  إن كانت الهمزة تكتب بغير كرسي وهي بين حرفين متواصلين (يعني لم يكن
+  الحرف الأول ألفًا أو دالا أو راء أو واوا) فتكتب الهمزة بين الحرفين
+  الأول والآخر، على الخط الذي يتصل به الحرفين.
+\end{itemize}
+
+\end{otherlanguage}
+
+
+
+
+\end{document}
