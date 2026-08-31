@@ -15,7 +15,7 @@ format:
     # background color. see also srchtml/custom.scss
     backgroundcolor: "#FDFBF7" # ultra light ivory
   pdf:
-    #keep-tex: true
+    keep-tex: true
     documentclass: scrreprt # no roman numeral pagination but chapter page can be left or right
     #toc: true
     #toc-depth: 2
@@ -105,8 +105,6 @@ filters:
 
 فها أنا ذا أقدم لكم قواعد تبسط الإشكال إن شاء الله 
 
-
----
 
 احفظ هذه الأصول:
 
