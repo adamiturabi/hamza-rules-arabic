@@ -25,16 +25,14 @@ format:
     mainfont: "Charis"
     mainfontoptions:
       - Numbers=OldStyle
-      - BoldFont="Charis SemiBold"
     sansfont: "Charis"
     sansfontoptions:
       - Numbers=OldStyle
-      - BoldFont="Charis SemiBold"
     monofont: "DejaVu Sans Mono"
     monofontoptions: "Scale=0.7"
     fontsize: 10pt
     #indent: true # indent first line of paragraph. Also seems to disable extra paragraph vertical spacing.
-    #pdf-engine: xelatex
+    pdf-engine: xelatex
     #include-in-header:
     #  - file: srctex/include_in_header.tex
     #include-before-body:
@@ -55,16 +53,16 @@ filters:
 بسم الله الرحمن الرحيم
 
 اعلم رحمك الله أن
-الواو مد وشبه [صامت](https://ar.wikipedia.org/wiki/%D8%B5%D8%A7%D9%85%D8%AA).
+الواو تكون أحيانًا صائتًا وأحيانًا صامتًا.
 فمن حقها صامتًا تحرك فنقول
 وَلد ووُسطى ووِلدان.
 ويسكن عليها فنقول مَوْلد.
 وأن الياء كذلك
-مد وشبه صامت
+صائت وشبه صامت
 فمن حقها صامتًا تحرك فنقول
 يَفعل ويُفعل ويسيِّر.
 ويسكن عليها فنقول وَيْل.
-وأن الألف كذلك مد وصامت.
+وأن الألف كذلك صائت وصامت.
 وحين تكون صامتا تلفظ بصوت الهمزة.
 والهمزة تحرك ويسكن عليها كما يُفعل بسائر الصوامت.
 وكان حقها أن تُكتب بالألف
@@ -79,7 +77,7 @@ filters:
 + بِاْسَ (بئس)
 + سُاْل (سُؤْل)
 
-ولكن بعض القبائل أشهرها قريش كانوا لا يلفظون الهمزة إلا إذا اضطروا.
+ولكن بعض القبائل أشهرها قريش كانوا لا يلفظون الهمزة إلا قليلًا.
 فيبدلونها مدًّا أو حركة.
 فنظنهم يقولونَ ويكتبون:
 
@@ -116,7 +114,7 @@ filters:
 
 فمن هذه القواعد نضع جدولًا للصوائت أول صفوفه أقواها وآخر صفوفه أضعفها:
 
-| الصائت | كتابة الهمزة |
+| الصائت | الكتابة |
 |--:|-:|
 |ـِي/ـَيْ | ء |
 |ـِ | ئ |
