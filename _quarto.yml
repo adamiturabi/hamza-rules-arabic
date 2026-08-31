@@ -1,7 +1,6 @@
 project:
   output-dir: docs
 
-toc: true
 title: "[قواعد كتابة الهمزة]{.aralt}"
 format:
   html:
@@ -14,13 +13,14 @@ format:
       - srchtml/custom.scss
     css: srchtml/styles.css
     linkcolor: "hsl(210,10.3448275862%,47.7450980392%)" # obtained by inspecting webpage
+    toc: true
     toc-title: "[الفهرست]{.aralt}"
     # background color. see also srchtml/custom.scss
     backgroundcolor: "#FDFBF7" # ultra light ivory
   pdf:
     keep-tex: true
     #documentclass: scrreprt # no roman numeral pagination but chapter page can be left or right
-    #toc: true
+    toc: true
     #toc-depth: 2
     #toc-title: Contents
     number-sections: true
