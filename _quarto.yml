@@ -1,16 +1,13 @@
 project:
   output-dir: docs
 
-title: "[قواعد كتابة الهمزة]{.aralt}"
+title: "قواعد كتابة الهمزة"
 format:
   html:
     lang: ar
     dir: rtl
     mainfont: "Amiri"
-    #mainfont: "CharisW"
-    #mainfontoptions: Numbers=OldStyle
-    #sansfont: "CharisW"
-    #monofont: "DejaVu Sans Mono" # set size in CSS using class "sourceCode"
+    fontsize: 1.25rem;
     theme:
       - cosmo # body text is a little grey which is good.
       - srchtml/custom.scss
@@ -34,9 +31,9 @@ format-links:
     text: PDF
     icon: file-pdf
 
-filters:
-  - arabic-support
-  - filters/footnotesize.lua
-  - filters/citex.lua
+#filters:
+#  - arabic-support
+#  - filters/footnotesize.lua
+#  - filters/citex.lua
 
 
