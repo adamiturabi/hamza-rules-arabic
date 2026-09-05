@@ -2,8 +2,12 @@ project:
   output-dir: docs
 
 title: "قواعد كتابة الهمزة"
+author:
+  - name: "أحمد بن الضياء"
+    email: ahmadosmanzia@gmail.com
 format:
   html:
+    email-obfuscation: javascript
     lang: ar
     dir: rtl
     mainfont: "Amiri"
